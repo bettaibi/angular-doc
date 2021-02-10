@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { DialogService } from '../dialog/dialog.service';
+import { SnackbarService } from '../snackbar/snackbar.service';
 import { CodePreviewComponent } from './code-preview/code-preview.component';
 import { EditorConfig } from './myTextEditor.model';
 
@@ -20,7 +21,8 @@ export class MyTextEditorComponent implements OnInit {
     private _content: string;
 
     constructor(
-        private dialogService: DialogService
+        private dialogService: DialogService,
+        private snackbarService: SnackbarService
     ) { }
 
     ngOnInit(): void { }
@@ -54,7 +56,7 @@ export class MyTextEditorComponent implements OnInit {
     }
 
     addCode(): void{
-
+        this.snackbarService.open('this is a message', 3000);
     }
 
     adjustment(): void{
