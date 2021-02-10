@@ -1,0 +1,18 @@
+<header class="header shadow-sm d-sm-none">
+    <div class="logo">
+        <img src="assets/img/angular-logo.png" alt="Angular" height="30">
+    </div>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<bn-sidenav [csStyle]="{'width.px': '240'}">
+  <nav>
+     <ul>
+        <li><a [routerLink]="['/admin/sections']" routerLinkActive="active">Sections Managment</a></li>
+        <li><a [routerLink]="['/admin/articles']" routerLinkActive="active" >Articles Managment</a></li>
+     </ul>
+  </nav>
+</bn-sidenav>

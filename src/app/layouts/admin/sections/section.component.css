@@ -1,0 +1,30 @@
+
+:host #section{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+:host .d-flex-between{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+:host .fab-btn{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff
+}
+:host .fab-btn img{
+    filter: invert(1);
+}
+
+:host .sections{
+    justify-self: end;
+}

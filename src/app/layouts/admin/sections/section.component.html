@@ -1,0 +1,46 @@
+<div id="section">
+
+    <div class="new-section">
+        <form [formGroup]="sectionForm" (ngSubmit)="onSubmit($event)">
+            <div class="form-group">
+                <label for="name">SECTION NAME</label>
+                <input type="text" id="name" name="name" class="form-control"
+                autocomplete="off" formControlName="name" [ngClass]="{'form-error': sectionForm.get('name').invalid && sectionForm.get('name').touched}">
+                <small class="text-danger" *ngIf="sectionForm.get('name').invalid && sectionForm.get('name').touched">Name is Required</small>
+            </div>
+            <div class="d-flex-between" style="margin: 0.5rem 0;">
+                <strong>Headlines</strong>
+                <button type="button" class="btn btn-primary fab-btn" (click)="addTitle()">
+                    <img src="assets/img/icons/add.svg" height="20">
+                </button>
+            </div>
+            <div class="form-group" *ngFor="let titlesForm of sectionForm.get('titles')['controls']; let i = index">
+                <form [formGroup]="titlesForm">
+                        <label for="title">TiTle N° {{i+1}}</label>
+                        <div style="display: flex; flex-direction: row;">
+                            <input type="text" id="title" name="title" class="form-control"
+                            autocomplete="off" formControlName="title"
+                            [ngClass]="{'form-error': titlesForm.get('title').invalid && titlesForm.get('title').touched}">
+                            <button type="button" class="btn btn-danger fab-btn" (click)="deleteTitle(i)"
+                            style="margin-left: 1rem;">
+                                <span style="font-size: 24px;">-</span>
+                            </button>
+                        </div>
+                        <small class="text-danger" *ngIf="titlesForm.get('title').invalid && titlesForm.get('title').touched">Title Is Required</small>
+                </form>
+            </div>
+            <input type="submit" class="btn btn-primary mr-1" value="New Section" [disabled]="sectionForm.invalid">
+            <input type="button" class="btn btn-secondary mr-1" value="Update Section" 
+            [disabled]="sectionForm.invalid && activeSection === null" (click)="updateSection()">
+            <input type="button" class="btn btn-danger" value="Delete Section" 
+            (click)="removeSection()" [disabled]="sectionForm.invalid && activeSection == null">
+        </form>
+    </div>
+
+    <div class="sections">
+        <div *ngFor="let item of sections ">
+            <bn-accordion [panel]="item" [activeSection]="activeSection" [activeTopic]="currentTopic"
+            (onTopicChange)="onTopicChange($event)" (onSectionChange)="onSectionChange($event, item)"></bn-accordion>
+        </div>
+    </div>
+</div>

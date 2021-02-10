@@ -1,0 +1,52 @@
+:host .header{
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 0 1rem;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+}
+:host .header .logo img{
+    filter: invert(1);
+}
+
+:host nav li{
+    list-style: none;
+    padding: .8rem;
+}
+:host nav li a{
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+:host nav li a:hover{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+:host nav li a.active{
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+:host main{
+    margin-top: 50px;
+    width: calc(100% - 240px);
+    padding: 1rem;
+    height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    :host main {
+      width: 100%;
+      padding: .8rem;
+    }
+    :host .fab-btn{
+        display: block;
+    }
+}

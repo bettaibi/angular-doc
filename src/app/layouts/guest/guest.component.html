@@ -1,0 +1,20 @@
+<header class="header shadow-sm d-sm-none">
+    <div class="logo">
+        <img src="assets/img/angular-logo.png" alt="Angular" height="30">
+    </div>
+</header>
+
+<main>
+    ss
+</main>
+
+<bn-sidenav [isOpen]="isOpen">
+    <div *ngFor="let item of sections">
+        <bn-accordion [panel]="item" [activeSection]="activeSection" [activeTopic]="currentTopic"
+        (onTopicChange)="onTopicChange($event)" (onSectionChange)="onSectionChange($event)"></bn-accordion>
+    </div>
+</bn-sidenav>
+
+<button class="fab-btn shadow-sm" (click)="toggleSidenav()">
+    <img id="close-icon" src="assets/img/icons/add.svg" alt="chapters">
+</button>

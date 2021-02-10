@@ -1,0 +1,31 @@
+<div class="myText-editor">
+
+    <div class="toolbar" [ngStyle]="toolbarCustomDesign">
+        <div class="d-flex s-between">
+            <div class="d-flex f-row w-100" style="margin-right: 0.2rem;">
+                <select [(ngModel)]="_currentTag" class="form-control form-control-sm" name="tag">
+                    <option [value]="item.tag" *ngFor="let item of Config.tags">{{item.description}}</option>
+                </select>
+                <button (click)="addHtml()" class="btn-group">Apply Tag</button>
+            </div>
+            <div class="d-flex f-row w-100">
+                <select [(ngModel)]="_currentClass" class="form-control form-control-sm" name="class">
+                    <option [value]="item.class" *ngFor="let item of Config.customClasses">{{item.name}}</option>
+                </select>
+                <button (click)="addClass()" class="btn-group">Apply Class</button>
+            </div>
+        </div>
+        <div class="d-flex f-row">
+            <button (click)="clear()" class="btn-group">Clear</button>
+            <button (click)="addCode()" class="btn-group">Add Code</button>
+            <button (click)="adjustment()" class="btn-group">Code Adjustment</button>
+            <button (click)="save()" class="btn-group">Add To Document</button>
+        </div>
+
+    </div>
+
+    <div id="text-editor" #editorContent contenteditable="true" spellcheck="true" tabindex="1" >
+        write something
+    </div>
+
+</div>

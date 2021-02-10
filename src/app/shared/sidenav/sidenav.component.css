@@ -1,0 +1,40 @@
+
+:host .sidenav{
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    height: calc(100vh - 50px);
+    width: 30%;
+    background-color: #F7F7F7;
+    border-left: 1px solid rgba(0, 0, 0, .12);
+    overflow: hidden;
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    :host .sidenav{
+        display: none
+    }
+    :host .sidenav.open{
+      display: block;
+      top: 50px;
+      left: 0;
+      height: calc(100vh - 50px);
+      width: 100%;
+      background-color: #fff;
+      z-index: 99;
+      animation: slideIn 0.5s ease-in-out forwards;
+    }
+}
+
+@keyframes slideIn{
+    from{
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

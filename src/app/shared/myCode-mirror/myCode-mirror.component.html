@@ -1,0 +1,52 @@
+<div class="mycode-mirror">
+  <div class="tabs">
+    <button class="btn-tabs" (click)="updateSelection($event, 'TS')"
+    [ngClass]="{'active': getSelected === 'TS'}">TS</button>
+    <button class="btn-tabs" (click)="updateSelection($event, 'HTML')"
+    [ngClass]="{'active': getSelected === 'HTML'}">HTML</button>
+    <button class="btn-tabs" (click)="updateSelection($event, 'SCSS')"
+    [ngClass]="{'active': getSelected === 'SCSS'}">SCSS</button>
+  </div>
+
+  <div class="tab-content" *ngIf="getSelected === 'TS' ">
+      <span class="copy" (click)="copyContent()">
+          <img src="assets/img/icons/content_copy.svg" alt="copy">
+      </span>
+    <ngx-codemirror [(ngModel)]="ts" [options]="{
+        lineNumbers: false,
+        theme: 'mdn-like',
+        readOnly: readOnly,
+        mode: 'javascript'}">
+    </ngx-codemirror>
+  </div>
+
+  <div class="tab-content"  *ngIf="getSelected === 'HTML' ">
+    <span class="copy" (click)="copyContent()">
+        <img src="assets/img/icons/content_copy.svg" alt="copy">
+    </span>
+    <ngx-codemirror
+    [(ngModel)]="html"
+    [options]="{
+        lineNumbers: false,
+        theme: 'mdn-like',
+        readOnly: readOnly,
+        mode: 'htmlmixed'
+    }"
+    ></ngx-codemirror>
+  </div>
+
+  <div class="tab-content"  *ngIf="getSelected === 'SCSS' ">
+    <span class="copy" (click)="copyContent()">
+        <img src="assets/img/icons/content_copy.svg" alt="copy">
+    </span>
+    <ngx-codemirror
+        [(ngModel)]="scss"
+        [options]="{
+            lineNumbers: false,
+            theme: 'mdn-like',
+            readOnly: readOnly,
+            mode: 'sass'
+        }"
+    ></ngx-codemirror>
+  </div>
+</div>

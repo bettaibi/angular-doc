@@ -1,0 +1,57 @@
+
+:host nav{
+    width: 100%;
+}
+
+:host .acc-section-btn{
+    font-family: inherit;
+    padding: .8rem 0.5rem;
+    background-color: inherit;
+    display: flex;
+    flex-direction: row;
+    outline: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    align-items: center;
+    color: var(--secondary-color);
+}
+:host .acc-section-btn:hover{
+    color: var(--primary-color);
+}
+:host .acc-section-btn:hover #section-state-icon{
+    filter: contrast(1);
+}
+
+:host .acc-section-btn #section-state-icon{
+    margin-left: 0.5rem;
+    filter: contrast(0.4);
+    transition: transform 300ms ease-in-out;
+}
+:host .acc-section-btn.active #section-state-icon{
+    transform: rotateX(180deg);
+}
+:host .acc-titles{
+    transition: height 300ms ease-in-out;
+}
+:host .acc-titles li{
+    padding: 0 1rem;
+    margin-bottom: 0.8rem;
+    list-style: none;
+    cursor: pointer;
+    transition: color 300ms ease-in-out;
+}
+:host .acc-titles li:hover{
+    color: var(--primary-color);
+    font-weight: bold;
+}
+:host .active{
+    color: var(--primary-color);
+    font-weight: bold;
+}
+:host .acc-titles li.active{
+    border-left: 4px solid var(--accent-color);
+}

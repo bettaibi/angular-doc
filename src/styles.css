@@ -1,0 +1,67 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~codemirror/lib/codemirror';
+@import '~codemirror/theme/mdn-like';
+@import './assets/css/utilities.css';
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 ;
+    padding: 0 ;
+}
+
+
+html, body{
+    height: 100vh;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+:root{
+    --primary-color: #20232a;
+    --secondary-color: #6d6d6d;
+    --dark-gray: #282c34;
+    --accent-color: #61dafb;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem
+}
+
+img {
+    vertical-align: middle;
+    border-style: none
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem
+}
+
+.CodeMirror {
+    height: 100% !important;
+    user-select: none;
+}

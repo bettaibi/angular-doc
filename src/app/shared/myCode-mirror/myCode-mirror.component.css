@@ -1,0 +1,55 @@
+:host .mycode-mirror{
+    width: 100%;
+    border: 1px solid rgba(0, 0,0, .12);
+    border-radius: 5px;
+    overflow: hidden;
+}
+:host .mycode-mirror .tabs{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0,0, .12);
+    background-color: #fafafa;
+}
+:host .mycode-mirror .btn-tabs{
+    padding: 1rem;
+    text-align: center;
+    min-width: 80px;
+    border: none;
+    height: 100%;
+    outline: none;
+    background: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000000DE;
+    transition: border-color 200ms ease-in-out;
+}
+:host .mycode-mirror .btn-tabs.active{
+    border-bottom: 2.5px solid var(--accent-color);
+}
+:host .mycode-mirror .btn-tabs:active{
+    transform: scale(.98);
+    background-color: #f0f0f0;
+}
+:host .mycode-mirror .tab-content{
+   background-color: rgb(247 247 247);
+   position: relative;
+   max-height: 450px;
+   overflow-y: auto !important;
+}
+
+:host .mycode-mirror .tab-content .copy{
+    width: fit-content;
+    position: absolute;
+    top: 5px;
+    right: .5rem;
+    z-index: 99;
+    padding: .3rem;
+    cursor: pointer;
+    filter: opacity(0.4);
+}
+:host .mycode-mirror .tab-content .copy:hover{
+    filter: opacity(0.8);
+}

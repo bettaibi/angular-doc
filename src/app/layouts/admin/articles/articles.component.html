@@ -1,0 +1,16 @@
+<header class="d-flex f-row space-between">
+    <h1>Article Generator</h1>
+    <button class="btn btn-primary"> Confirm Document</button>
+</header>
+
+<myText-editor [Config]="editorConfig" (onContentChange)="onContentChange($event)"></myText-editor>
+
+<main>
+    <div class="card">
+        
+        <div *ngFor="let item of article.body">
+            <div [innerHtml]="item.content"></div>
+            <myCode-mirror *ngIf="item?.code" [scss]="item.code.scss" [html]= "item.code.html" [ts]="item.code.ts" [readOnly]="false"></myCode-mirror>
+        </div>
+    </div>
+</main>

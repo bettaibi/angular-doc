@@ -1,0 +1,64 @@
+
+:host .myText-editor{
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+    resize: vertical;
+    min-height: 200px;
+}
+:host .myText-editor .toolbar{
+    padding: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    background-color: #fafafa;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+:host .myText-editor #text-editor{
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    display: inline-block;
+}
+.s-between{
+    justify-content: space-between;
+}
+.form-control:focus{
+   margin-right: 2px;
+}
+.form-control:focus ~ .btn-group{
+    color: #444;
+    background-color: #fff;
+    border-color: #593196;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(89, 49, 150, 0.25);
+    margin-left: 2px;
+
+}
+.btn-group{
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.765625rem;
+    line-height: 1.5;
+    width: 100%;
+    font-weight: 400;
+    color: #444;
+    background-color: #fafafa;
+    background-clip: padding-box;
+    border: 1px solid #cbc8d0;
+    border-radius: 0;
+    margin-bottom: 0.3rem;
+    outline: none;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out
+}
+.btn-group:active{
+    background-color: #dbdbdb;
+}
+.btn-group:disabled{
+    background-color: pink;
+}

@@ -1,0 +1,11 @@
+<nav>
+    <button class="acc-section-btn active" (click)="onPanelChange(panel.id)"
+    [ngClass]="{'active': panel.id === activeSection}">
+        {{panel.name}}
+        <img src="assets/img/icons/arrow_down.svg" alt="angular_doc_sections" id="section-state-icon">
+    </button>
+    <ul class="acc-titles" [ngClass]="{'d-none': panel.id !== activeSection}">
+        <li *ngFor="let item of panel.titles" (click)="onSubjectChange(item.id)"
+        [ngClass]="{'active': item.id === activeTopic}">{{item.title}}</li>
+    </ul>
+</nav>
