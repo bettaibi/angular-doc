@@ -5,10 +5,10 @@
 </header>
 
 <main>
-    ss
+    
 </main>
 
-<bn-sidenav [isOpen]="isOpen">
+<bn-sidenav [isOpen]="isOpen">  
     <div *ngFor="let item of sections">
         <bn-accordion [panel]="item" [activeSection]="activeSection" [activeTopic]="currentTopic"
         (onTopicChange)="onTopicChange($event)" (onSectionChange)="onSectionChange($event)"></bn-accordion>

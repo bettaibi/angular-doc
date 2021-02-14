@@ -1,9 +1,11 @@
 import { ApplicationRef, ComponentFactoryResolver, ComponentRef, EmbeddedViewRef, Injectable, Injector } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { SnackbarComponent } from './snackbar.component';
 
 @Injectable()
 export class SnackbarService {
     private snackbarComponentRef: ComponentRef<SnackbarComponent>;
+    private sub: Subscription;
 
     constructor(
         private componentFactoryResolver: ComponentFactoryResolver,
@@ -20,6 +22,10 @@ export class SnackbarService {
         
         document.body.appendChild(domElem);
         this.snackbarComponentRef = componentRef;
+
+        this.sub = this.snackbarComponentRef.instance.onClose.subscribe(()=>{
+            this.removeSnackbarComponent();
+        });
     }
 
     open(message: string, timer: number): void{
@@ -33,5 +39,6 @@ export class SnackbarService {
     private removeSnackbarComponent(): void{
         this.appRef.detachView(this.snackbarComponentRef.hostView);
         this.snackbarComponentRef.destroy();
+        this.sub.unsubscribe();
     }
 }

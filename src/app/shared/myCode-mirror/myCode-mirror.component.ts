@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Icode } from 'src/app/models/app';
 
 @Component({
     selector: 'myCode-mirror',
@@ -6,9 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./myCode-mirror.component.css']
 })
 export class MyCodeMirrorComponent implements OnInit {
-    @Input() public html: string;
-    @Input() public ts: string;
-    @Input() public scss: string;
+    @Input() public editorCode: Icode;
     @Input() public readOnly: boolean;
 
     private selected: string;
@@ -35,7 +34,7 @@ export class MyCodeMirrorComponent implements OnInit {
     copyContent(): void {
         console.log("djdjd")
         const copy = document.createElement('textarea');
-        copy.value = this.getSelected === types.TS? this.ts : this.getSelected == types.HTML? this.html: this.scss;
+        copy.value = this.getSelected === types.TS? this.editorCode.ts.content : this.getSelected == types.HTML? this.editorCode.html.content: this.editorCode.scss.content;
         document.body.appendChild(copy);
 
         copy.select();

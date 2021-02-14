@@ -9,8 +9,10 @@ import { InsertionDirective } from './insertion.directive';
 })
 export class DialogComponent implements AfterViewInit, OnDestroy {
     private readonly _onClose = new Subject<any>();
+
     public componentRef: ComponentRef<any>;
     childComponentType: Type<any>;
+
     public onClose = this._onClose.asObservable();
 
     @ViewChild(InsertionDirective)
@@ -28,7 +30,7 @@ export class DialogComponent implements AfterViewInit, OnDestroy {
 
     onOverlayClicked(evt: MouseEvent) {
         // close the dialog
-        
+        this._onClose.next();
     }
 
     onDialogClicked(evt: MouseEvent) {
@@ -39,7 +41,6 @@ export class DialogComponent implements AfterViewInit, OnDestroy {
         let componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentType);
     
         let viewContainerRef = this.insertionPoint.viewContainerRef;
-        // viewContainerRef.clear();
     
         this.componentRef = viewContainerRef.createComponent(componentFactory);
     }

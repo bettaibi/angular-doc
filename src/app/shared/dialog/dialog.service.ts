@@ -7,11 +7,13 @@ import {
     ComponentRef,
     Type,
 } from '@angular/core'
+import { Subscription } from 'rxjs';
 import { DialogComponent } from './dialog.component'
 
 @Injectable()
 export class DialogService {
     dialogComponentRef: ComponentRef<DialogComponent>;
+    private sub: Subscription;
 
     constructor(
         private componentFactoryResolver: ComponentFactoryResolver,
@@ -28,11 +30,16 @@ export class DialogService {
         document.body.appendChild(domElem);
 
         this.dialogComponentRef = componentRef;
+
+        this.sub = this.dialogComponentRef.instance.onClose.subscribe(()=>{
+            this.removeDialogComponentFromBody()
+        });
     }
 
     private removeDialogComponentFromBody() {
         this.appRef.detachView(this.dialogComponentRef.hostView);
         this.dialogComponentRef.destroy();
+        this.sub.unsubscribe();
     }
 
     public open(componentType: Type<any>) {

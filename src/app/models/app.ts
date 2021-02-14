@@ -1,8 +1,12 @@
 
+export interface codeDetails{
+    pageTitle: string;
+    content: string;
+}
 export interface Icode{
-    html?: string;
-    scss?: string;
-    ts?: string;
+    html?: codeDetails;
+    scss?: codeDetails;
+    ts?: codeDetails;
 }
 
 export interface Pargraph{

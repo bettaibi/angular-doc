@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IArticle } from 'src/app/models/app';
+import { IArticle, Icode } from 'src/app/models/app';
 import { editorConfig } from './editor.config';
 
 @Component({
@@ -13,15 +13,22 @@ export class ArticlesComponent implements OnInit {
     editorConfig = editorConfig;
     editorContent: string;
 
+    contentExample: Icode;
+
     constructor() {
         this.article = {
             body: [],
             created: new Date()
         };
+
+        this.contentExample = {
+            html:{pageTitle: 'example.component.html', content: '<h1>Article Generator</h1>'},
+            scss: {pageTitle: 'example.component.scss', content: 'scss'},
+            ts: {pageTitle: 'example.component.ts', content: 'console.log(hi)'}
+        }
     }
 
-    ngOnInit(): void { }
-
+    ngOnInit(): void {}
 
     onContentChange(content): void{
         console.log(content);

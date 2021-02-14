@@ -5,12 +5,13 @@
 
 <myText-editor [Config]="editorConfig" (onContentChange)="onContentChange($event)"></myText-editor>
 
+<!-- <myCode-mirror  [editorCode]="contentExample" [readOnly]="false"></myCode-mirror> -->
+
 <main>
     <div class="card">
-        
         <div *ngFor="let item of article.body">
             <div [innerHtml]="item.content"></div>
-            <myCode-mirror *ngIf="item?.code" [scss]="item.code.scss" [html]= "item.code.html" [ts]="item.code.ts" [readOnly]="false"></myCode-mirror>
+            <myCode-mirror *ngIf="item?.code" [editorCode]="contentExample" [readOnly]="false"></myCode-mirror>
         </div>
     </div>
 </main>

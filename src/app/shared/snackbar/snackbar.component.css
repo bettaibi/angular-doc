@@ -1,16 +1,8 @@
-.snackbar-container{
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: center;
-}
 
-.snackbar{
+:host .snackbar{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
     background-color: #333;
     color: #ccc;
     font-size: 14px;
@@ -19,8 +11,7 @@
     border-radius: 5px;
     box-shadow: 1px 1px 16px rgba(0,0,0,0.5);
     transform: scale(0);
-    animation: scaleIn .3s ease forwards;
-    margin-bottom: 2rem;
+    animation: scaleIn .2s ease-in-out forwards;
     min-width: 250px;
     display: flex;
     flex-direction: row;
@@ -28,7 +19,7 @@
     align-items: center;
 }
 
-.snackbar .btn-close{
+:host .snackbar .btn-close{
     border: none;
     outline: none;
     background-color: inherit;
